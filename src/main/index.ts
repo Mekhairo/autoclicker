@@ -3,15 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { ClickerSettings, Profile } from '../shared/types'
-
-// Defer robotjs import to handle cases where it may not be rebuilt yet
-let robot: typeof import('robotjs') | null = null
-try {
-  robot = require('robotjs')
-  robot!.setMouseDelay(0)
-} catch (e) {
-  console.warn('robotjs not available:', e)
-}
+import { getClicker } from './clicker'
 
 // ── Profiles persistence ──────────────────────────────────────────────────────
 
@@ -61,9 +53,7 @@ function scheduleClick(interval: number): void {
   clickTimeout = setTimeout(() => {
     if (!isRunning) return
     try {
-      if (robot) {
-        robot.mouseClick(activeSettings?.clickType ?? 'left')
-      }
+      getClicker()?.(activeSettings?.clickType ?? 'left')
     } catch (e) {
       console.error('Click error:', e)
     }
