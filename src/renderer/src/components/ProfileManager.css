@@ -1,0 +1,95 @@
+.profiles {
+  width: 100%;
+}
+
+.profiles__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.profiles__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  min-width: 0;
+  max-width: 160px;
+}
+
+.profiles__item:hover {
+  border-color: var(--border-focus);
+}
+
+.profiles__item--active {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.profiles__name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profiles__name-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 500;
+  width: 80px;
+  padding: 0;
+}
+
+.profiles__delete {
+  font-size: 9px;
+  color: var(--text-muted);
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+
+.profiles__delete:hover {
+  color: var(--danger);
+  background: rgba(255, 68, 68, 0.1);
+}
+
+.profiles__add {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.profiles__add:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.profiles__add:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

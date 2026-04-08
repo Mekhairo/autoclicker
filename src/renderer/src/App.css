@@ -1,0 +1,46 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg);
+  transition: background 0.2s, color 0.2s;
+}
+
+.app--running {
+  --bg: #0a1a0a;
+}
+
+[data-theme="light"] .app--running {
+  --bg: #f0fff0;
+}
+
+.app__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px 20px;
+  overflow-y: auto;
+}
+
+.app__row {
+  width: 100%;
+}
+
+/* ── Shared surface card ─────────────────────────────────────── */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+/* ── Label ───────────────────────────────────────────────────── */
+.label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}

@@ -1,0 +1,39 @@
+.click-type {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.click-type__options {
+  display: flex;
+  gap: 6px;
+}
+
+.click-type__btn {
+  flex: 1;
+  padding: 7px 0;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.click-type__btn:hover:not(:disabled) {
+  border-color: var(--border-focus);
+  color: var(--text-primary);
+}
+
+.click-type__btn--active {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.click-type__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
